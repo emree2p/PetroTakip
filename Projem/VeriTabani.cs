@@ -5,9 +5,11 @@ namespace Projem
 {
     internal class VeriTabani
     {
+        // VERİTABANI BAĞLANTISI
         public static string Baglanti =
             @"Server=DESKTOP-7JQU40D;Database=PetroTakip;Integrated Security=True;TrustServerCertificate=True;";
 
+        // VERiTABANI FİYAT ÇEKME VE GÜNCELLEME
         private static readonly HttpClient http = new HttpClient();
 
         public static async Task FiyatGuncelle()
@@ -226,24 +228,7 @@ namespace Projem
             }
         }
 
-        public static void SatisYap(int pompaId, int personelId, string plaka, decimal litre, decimal tutar)
-        {
-            using (SqlConnection con = new SqlConnection(Baglanti))
-            using (SqlCommand cmd = new SqlCommand("sp_SatisYap", con))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@pompa", pompaId);
-                cmd.Parameters.AddWithValue("@personel", personelId);
-                cmd.Parameters.AddWithValue("@plaka", plaka);
-                cmd.Parameters.AddWithValue("@litre", litre);
-                cmd.Parameters.AddWithValue("@tutar", tutar);
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-
         //PERSONEL
-
         public static DataTable PersonelGetir()
         {
             string sql = @"SELECT personel_id AS [No], personel_ad  AS [Ad], personel_soyad AS [Soyad], personel_rol AS [Rol]
@@ -294,8 +279,7 @@ namespace Projem
             }
         }
 
-        //KASA
-
+        // SATIŞLAR
         public static DataTable SatislariGetir()
         {
             string sql = @"SELECT s.satis_tarihi AS [Tarih],
@@ -319,7 +303,45 @@ namespace Projem
             }
 
         }
+        public static void SatisYap(int pompaId, int personelId, string plaka, decimal litre, decimal tutar)
+        {
+            using (SqlConnection con = new SqlConnection(Baglanti))
+            using (SqlCommand cmd = new SqlCommand("sp_SatisYap", con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pompa", pompaId);
+                cmd.Parameters.AddWithValue("@personel", personelId);
+                cmd.Parameters.AddWithValue("@plaka", plaka);
+                cmd.Parameters.AddWithValue("@litre", litre);
+                cmd.Parameters.AddWithValue("@tutar", tutar);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static DataTable SonSatislar()
+        {
+            string sql = @"SELECT TOP 5 s.satis_tarihi AS [Tarih],
+                         N'Pompa ' + CAST(s.satis_pompa AS NVARCHAR(10)) AS [Pompa],
+                         y.yakit_ad AS [Yakıt],
+                         p.personel_ad + N' ' + p.personel_soyad AS [Pompacı],
+                         s.satis_plaka AS [Plaka],
+                         s.satis_litre AS [Litre],
+                         s.satis_birim_fiyat AS [Birim Fiyat],
+                         s.satis_tutar AS [Tutar]
+                       FROM Satis s 
+                       JOIN Yakit_turu y ON y.yakit_turu_id = s.satis_yakit_turu
+                       JOIN Personel p ON p.personel_id = s.satis_personel
+                       ORDER BY s.satis_id DESC";
+            using (SqlConnection con = new SqlConnection(Baglanti))
+            using (SqlDataAdapter da = new SqlDataAdapter(sql, con))
+            {
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
 
+        //KASA
         public static DataTable KasaGetir()
         {
             string sql = @"SELECT satis_tarihi AS Tarih,
@@ -516,31 +538,6 @@ namespace Projem
                            GROUP BY CAST(islem_tarihi AS DATE)
                            ORDER BY [Tarih] DESC";
             return RaporCalistir(sql, bas, bit);
-        }
-
-        //
-
-        public static DataTable SonSatislar()
-        {
-            string sql = @"SELECT TOP 10 s.satis_tarihi AS [Tarih],
-                         N'Pompa ' + CAST(s.satis_pompa AS NVARCHAR(10)) AS [Pompa],
-                         y.yakit_ad AS [Yakıt],
-                         p.personel_ad + N' ' + p.personel_soyad AS [Pompacı],
-                         s.satis_plaka AS [Plaka],
-                         s.satis_litre AS [Litre],
-                         s.satis_birim_fiyat AS [Birim Fiyat],
-                         s.satis_tutar AS [Tutar]
-                       FROM Satis s 
-                       JOIN Yakit_turu y ON y.yakit_turu_id = s.satis_yakit_turu
-                       JOIN Personel p ON p.personel_id = s.satis_personel
-                       ORDER BY s.satis_id DESC";
-            using (SqlConnection con = new SqlConnection(Baglanti))
-            using (SqlDataAdapter da = new SqlDataAdapter(sql, con))
-            {
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
         }
     }
 }

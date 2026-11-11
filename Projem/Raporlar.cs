@@ -25,16 +25,19 @@ namespace Projem
         private void pnlRaporKasa_Click(object sender, EventArgs e)
         {
             seciliRapor = 1;
+            lblSecilen.Text = "Seçilen Rapor: Kasa Raporu";
         }
 
         private void pnlRaporSatis_Click(object sender, EventArgs e)
         {
             seciliRapor = 2;
+            lblSecilen.Text = "Seçilen Rapor: Satış Raporu";
         }
 
         private void pnlRaporStok_Click(object sender, EventArgs e)
         {
             seciliRapor = 3;
+            lblSecilen.Text = "Seçilen Rapor: Stok Raporu"; 
         }
 
         private void btnOlustur_Click(object sender, EventArgs e)
