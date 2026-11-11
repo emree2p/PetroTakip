@@ -326,7 +326,7 @@ namespace Projem
                          p.personel_ad + N' ' + p.personel_soyad AS [Pompacı],
                          s.satis_plaka AS [Plaka],
                          s.satis_litre AS [Litre],
-                         s.satis_birim_fiyat AS [Birim Fiyat],
+                         s.satis_birim_fiyat AS [BirimFiyat],
                          s.satis_tutar AS [Tutar]
                        FROM Satis s 
                        JOIN Yakit_turu y ON y.yakit_turu_id = s.satis_yakit_turu

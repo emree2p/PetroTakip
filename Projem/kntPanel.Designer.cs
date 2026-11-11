@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kntPanel));
             pnlMenu = new Panel();
             btnKontrol = new Button();
@@ -52,6 +52,7 @@
             btnTank = new Button();
             btnPompa = new Button();
             pnlIcerik = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             pnlKpTanklar = new Panel();
             barTank6 = new ProgressBar();
             lblTankKapasite6 = new Label();
@@ -108,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)pctYazi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             pnlIcerik.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             pnlKpTanklar.SuspendLayout();
             pnlKpPompalar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKPSatis).BeginInit();
@@ -387,8 +389,7 @@
             // pnlIcerik
             // 
             pnlIcerik.BackColor = Color.White;
-            pnlIcerik.Controls.Add(pnlKpTanklar);
-            pnlIcerik.Controls.Add(pnlKpPompalar);
+            pnlIcerik.Controls.Add(flowLayoutPanel1);
             pnlIcerik.Controls.Add(dgvKPSatis);
             pnlIcerik.Controls.Add(flpKpOzet);
             pnlIcerik.Dock = DockStyle.Fill;
@@ -397,6 +398,18 @@
             pnlIcerik.Name = "pnlIcerik";
             pnlIcerik.Size = new Size(1073, 832);
             pnlIcerik.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            flowLayoutPanel1.Controls.Add(pnlKpTanklar);
+            flowLayoutPanel1.Controls.Add(pnlKpPompalar);
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(0, 160);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1073, 416);
+            flowLayoutPanel1.TabIndex = 11;
             // 
             // pnlKpTanklar
             // 
@@ -419,7 +432,7 @@
             pnlKpTanklar.Controls.Add(barTank1);
             pnlKpTanklar.Controls.Add(lblTankKapasite1);
             pnlKpTanklar.Controls.Add(TankAdMotorin);
-            pnlKpTanklar.Location = new Point(0, 164);
+            pnlKpTanklar.Location = new Point(3, 3);
             pnlKpTanklar.Name = "pnlKpTanklar";
             pnlKpTanklar.Size = new Size(531, 412);
             pnlKpTanklar.TabIndex = 10;
@@ -620,7 +633,7 @@
             pnlKpPompalar.Controls.Add(KpDurum2);
             pnlKpPompalar.Controls.Add(KpDurum1);
             pnlKpPompalar.Controls.Add(UyariSayiYazi);
-            pnlKpPompalar.Location = new Point(542, 164);
+            pnlKpPompalar.Location = new Point(540, 3);
             pnlKpPompalar.Name = "pnlKpPompalar";
             pnlKpPompalar.Size = new Size(531, 412);
             pnlKpPompalar.TabIndex = 9;
@@ -713,32 +726,32 @@
             // 
             dgvKPSatis.AllowUserToAddRows = false;
             dgvKPSatis.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(244, 246, 252);
-            dgvKPSatis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 246, 252);
+            dgvKPSatis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvKPSatis.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvKPSatis.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKPSatis.BackgroundColor = Color.White;
             dgvKPSatis.BorderStyle = BorderStyle.None;
             dgvKPSatis.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.MidnightBlue;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = Color.MidnightBlue;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvKPSatis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.MidnightBlue;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.MidnightBlue;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvKPSatis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvKPSatis.ColumnHeadersHeight = 42;
             dgvKPSatis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvKPSatis.Columns.AddRange(new DataGridViewColumn[] { colTarih, colPompa, colYakit, colPompaci, colPlaka, colLitre, colBirimFiyat, Tutar });
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = SystemColors.Window;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(255, 224, 178);
-            dataGridViewCellStyle14.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dgvKPSatis.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(255, 224, 178);
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgvKPSatis.DefaultCellStyle = dataGridViewCellStyle7;
             dgvKPSatis.EnableHeadersVisualStyles = false;
             dgvKPSatis.GridColor = Color.FromArgb(225, 228, 240);
             dgvKPSatis.Location = new Point(8, 582);
@@ -753,9 +766,9 @@
             // colTarih
             // 
             colTarih.DataPropertyName = "Tarih";
-            dataGridViewCellStyle10.Format = "g";
-            dataGridViewCellStyle10.NullValue = null;
-            colTarih.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Format = "g";
+            dataGridViewCellStyle3.NullValue = null;
+            colTarih.DefaultCellStyle = dataGridViewCellStyle3;
             colTarih.HeaderText = "Tarih";
             colTarih.Name = "colTarih";
             colTarih.ReadOnly = true;
@@ -791,10 +804,10 @@
             // colLitre
             // 
             colLitre.DataPropertyName = "Litre";
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = null;
-            colLitre.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            colLitre.DefaultCellStyle = dataGridViewCellStyle4;
             colLitre.HeaderText = "Litre";
             colLitre.Name = "colLitre";
             colLitre.ReadOnly = true;
@@ -802,10 +815,10 @@
             // colBirimFiyat
             // 
             colBirimFiyat.DataPropertyName = "BirimFiyat";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            colBirimFiyat.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            colBirimFiyat.DefaultCellStyle = dataGridViewCellStyle5;
             colBirimFiyat.HeaderText = "Birim Fiyat";
             colBirimFiyat.Name = "colBirimFiyat";
             colBirimFiyat.ReadOnly = true;
@@ -813,10 +826,10 @@
             // Tutar
             // 
             Tutar.DataPropertyName = "Tutar";
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            Tutar.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            Tutar.DefaultCellStyle = dataGridViewCellStyle6;
             Tutar.HeaderText = "Tutar";
             Tutar.Name = "Tutar";
             Tutar.ReadOnly = true;
@@ -996,6 +1009,7 @@
             ((System.ComponentModel.ISupportInitialize)pctYazi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pctLogo).EndInit();
             pnlIcerik.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             pnlKpTanklar.ResumeLayout(false);
             pnlKpPompalar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvKPSatis).EndInit();
@@ -1080,5 +1094,6 @@
         private Label lblTankKapasite3;
         private Label TankAdBenzin1;
         private System.Windows.Forms.Timer timer2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
