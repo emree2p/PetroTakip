@@ -52,7 +52,7 @@
             btnTank = new Button();
             btnPompa = new Button();
             pnlIcerik = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            flpTankvePompa = new FlowLayoutPanel();
             pnlKpTanklar = new Panel();
             barTank6 = new ProgressBar();
             lblTankKapasite6 = new Label();
@@ -109,7 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)pctYazi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             pnlIcerik.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            flpTankvePompa.SuspendLayout();
             pnlKpTanklar.SuspendLayout();
             pnlKpPompalar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKPSatis).BeginInit();
@@ -389,7 +389,7 @@
             // pnlIcerik
             // 
             pnlIcerik.BackColor = Color.White;
-            pnlIcerik.Controls.Add(flowLayoutPanel1);
+            pnlIcerik.Controls.Add(flpTankvePompa);
             pnlIcerik.Controls.Add(dgvKPSatis);
             pnlIcerik.Controls.Add(flpKpOzet);
             pnlIcerik.Dock = DockStyle.Fill;
@@ -399,17 +399,17 @@
             pnlIcerik.Size = new Size(1073, 832);
             pnlIcerik.TabIndex = 1;
             // 
-            // flowLayoutPanel1
+            // flpTankvePompa
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            flowLayoutPanel1.Controls.Add(pnlKpTanklar);
-            flowLayoutPanel1.Controls.Add(pnlKpPompalar);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(0, 160);
-            flowLayoutPanel1.Margin = new Padding(0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1073, 416);
-            flowLayoutPanel1.TabIndex = 11;
+            flpTankvePompa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            flpTankvePompa.Controls.Add(pnlKpTanklar);
+            flpTankvePompa.Controls.Add(pnlKpPompalar);
+            flpTankvePompa.FlowDirection = FlowDirection.TopDown;
+            flpTankvePompa.Location = new Point(0, 160);
+            flpTankvePompa.Margin = new Padding(0);
+            flpTankvePompa.Name = "flpTankvePompa";
+            flpTankvePompa.Size = new Size(1073, 416);
+            flpTankvePompa.TabIndex = 11;
             // 
             // pnlKpTanklar
             // 
@@ -481,7 +481,7 @@
             lblTankKapasite5.BackColor = Color.Transparent;
             lblTankKapasite5.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblTankKapasite5.ForeColor = Color.White;
-            lblTankKapasite5.Location = new Point(272, 280);
+            lblTankKapasite5.Location = new Point(275, 280);
             lblTankKapasite5.Name = "lblTankKapasite5";
             lblTankKapasite5.Size = new Size(225, 21);
             lblTankKapasite5.TabIndex = 14;
@@ -512,7 +512,7 @@
             lblTankKapasite4.BackColor = Color.Transparent;
             lblTankKapasite4.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblTankKapasite4.ForeColor = Color.White;
-            lblTankKapasite4.Location = new Point(273, 230);
+            lblTankKapasite4.Location = new Point(275, 230);
             lblTankKapasite4.Name = "lblTankKapasite4";
             lblTankKapasite4.Size = new Size(225, 21);
             lblTankKapasite4.TabIndex = 11;
@@ -543,7 +543,7 @@
             lblTankKapasite3.BackColor = Color.Transparent;
             lblTankKapasite3.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblTankKapasite3.ForeColor = Color.White;
-            lblTankKapasite3.Location = new Point(273, 180);
+            lblTankKapasite3.Location = new Point(275, 180);
             lblTankKapasite3.Name = "lblTankKapasite3";
             lblTankKapasite3.Size = new Size(225, 21);
             lblTankKapasite3.TabIndex = 8;
@@ -1009,7 +1009,7 @@
             ((System.ComponentModel.ISupportInitialize)pctYazi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pctLogo).EndInit();
             pnlIcerik.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
+            flpTankvePompa.ResumeLayout(false);
             pnlKpTanklar.ResumeLayout(false);
             pnlKpPompalar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvKPSatis).EndInit();
@@ -1094,6 +1094,6 @@
         private Label lblTankKapasite3;
         private Label TankAdBenzin1;
         private System.Windows.Forms.Timer timer2;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flpTankvePompa;
     }
 }
